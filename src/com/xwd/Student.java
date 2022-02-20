@@ -9,6 +9,8 @@ package com.xwd;
  */
 public class Student {
     //properties
+    private String name;
+    private Integer age;
 
     //setter
 
