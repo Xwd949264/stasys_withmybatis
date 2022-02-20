@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no, shrink-to-fit=no">
+		<title>科研教学成果收集系统-注册</title>
+		<!-- 描述信息 -->
+		<meta name="description" content="科研教学成果收集系统 科研成果|教学成果上报 科研成果|教学成果查询 科研成果|教学成果导出" />
+		<!-- 设置图标 -->
+		<link rel="icon" href="static/resources/icons/favicon.ico" />
+		<!-- 引入bootstrap-css资源 -->
+		<link rel="stylesheet" href="static/bootstrap4.0/css/bootstrap.min.css" />
+		<!-- 字体图标资源 -->
+		<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+		<!-- 引入自定义css资源 -->
+		<link rel="stylesheet" href="static/css/prelogin.css" />
+	</head>
+	<body>
+		<div class="container-fluid">
+			<!-- 导航条---begin -->
+			<nav class="nav-bar">
+				<!-- title-img -->
+				<a href="#" class="webtitle_photo">
+					<img src="static/resources/imgs/webtitle.png" alt="科研教学成果收集系统" title="科研教学成果收集系统">
+				</a>
+				<!-- 登录/注册按钮 -->
+				<div class="switch-btn">
+					<a class="btn btn-primary switch-btn-item" href="login.html">登录</a>
+					<a class="btn btn-primary switch-btn-item" href="register.html">注册</a>
+				</div>
+			</nav>
+			<!-- 导航条---end -->
+			<!-- 表单---begin -->
+			<div class="main">
+				<div class="login-form center">
+					<h1 class="text-center header-form">Register-账户注册</h1>
+					<p class="text-center sub-header-form">通过邮箱创建账户,点击右侧图标查看提示信息</p>
+					<form class="form-body" action="#" method="post">
+						<div  id="">
+							<label for="email" class="">您的邮箱:</label>
+							<input type="email" class="" name="emailaddress" id="email" value=""
+								placeholder="email-address" />
+							<i class="fa fa-question-circle text-primary test-icon" id="email-input"></i>
+							<i class="fa fa-check-circle text-info test-icon" id="email-success"></i>
+							<i class="fa fa-exclamation-triangle text-danger test-icon" id="email-error"></i>
+							
+						</div>
+						<div  id="">
+							<label for="psdw">设置密码:</label>
+							<input type="password" name="password" id="pswd" value="" placeholder="密码长度≥6位" />
+							<i class="fa fa-question-circle text-primary test-icon" id="pswd-input"></i>
+							<i class="fa fa-check-circle text-info test-icon" id="pswd-success"></i>
+							<i class="fa fa-exclamation-triangle text-danger test-icon" id="pswd-error"></i>
+						</div>
+						<div  id="">
+							<label for="check">确认密码:</label>
+							<input type="password" name="checkpswd" id="check" value="" placeholder="请再次输入密码" />
+							<i class="fa fa-question-circle text-primary test-icon" id="cpswd-input"></i>
+							<i class="fa fa-check-circle text-info test-icon" id="cpswd-success"></i>
+							<i class="fa fa-exclamation-triangle text-danger test-icon" id="cpswd-error"></i>
+						</div>
+						<div id="">
+							<input type="text" name="verifycode" id="verifycode" value="" placeholder="请输入验证码" />
+							<a class="btn btn-info">发送验证码<a />
+						</div>
+						<div  id="">
+							<button type="submit" class="btn btn-primary btn-lg btn-block">确认注册</button>
+						</div>
+					</form>
+					<div class="text-center">
+						<span>已有账户,现在登录?</span>
+						<a href="login.html" class="text-primary">点击此处</a>
+					</div>
+				</div>
+			</div>
+			<!-- 表单---end -->
+		</div>
+		<!-- 引入js资源 -->
+		<script type="text/javascript" src="static/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="static/bootstrap4.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			//邮箱验证
+			$('#email').blur(function() {
+				var reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+				console.log($('#email').val())
+				if (!$('#email').val()) {
+					$('#email').css("border-color","red")
+					$('#email-input').css("display","none")
+					$('#email-success').css("display","none")
+					$('#email-error').css("display","inline-block")
+					$('#email-error').attr("title","邮箱名不能为空!");
+					return;
+				} else if (!reg.test($('#email').val())) {
+					$('#email').css("border-color","red")
+					$('#email-input').css("display","none")
+					$('#email-success').css("display","none")
+					$('#email-error').css("display","inline-block")
+					$('#email-error').attr("title","邮箱格式错误!");
+					return;
+				} else {
+					$('#email').css("border-color","green")
+					$('#email-input').css("display","none")
+					$('#email-success').css("display","inline-block")
+					$('#email-error').css("display","none")
+					$('#email-success').attr("title","验证通过!");
+				}
+			})
+			//密码验证
+			$('#pswd').blur(function() {
+				//设置密码
+				if(!$('#pswd').val()){
+					$('#pswd').css("border-color","red");
+					$('#pswd-input').css("display","none")
+					$('#pswd-success').css("display","none")
+					$('#pswd-error').css("display","inline-block")
+					$('#pswd-error').attr("title","密码不能为空!");
+					return;
+				}else if($('#pswd').val().length<6){
+					$('#pswd').css("border-color","red");
+					$('#pswd-input').css("display","none")
+					$('#pswd-success').css("display","none")
+					$('#pswd-error').css("display","inline-block")
+					$('#pswd-error').attr("title","密码长度小于6!");
+					return;
+				}
+				else{
+					$('#pswd').css("border-color","green");
+					$('#pswd-input').css("display","none")
+					$('#pswd-success').css("display","inline-block")
+					$('#pswd-error').css("display","none")
+					$('#pswd-success').attr("title","验证通过!");
+					return;
+				}
+			})
+			$("#check").blur(function(){
+				if(!$('#check').val()){
+					$('#check').css("border-color","red");
+					$('#cpswd-input').css("display","none")
+					$('#cpswd-success').css("display","none")
+					$('#cpswd-error').css("display","inline-block")
+					$('#cpswd-error').attr("title","密码不能为空!");
+					return;
+				}else if($('#check').val().length<6){
+					$('#check').css("border-color","red");
+					$('#cpswd-input').css("display","none")
+					$('#cpswd-success').css("display","none")
+					$('#cpswd-error').css("display","inline-block")
+					$('#cpswd-error').attr("title","密码长度小于6!");
+					return;
+				}else if($("#pswd").val()!=$("#check").val()){
+					$('#check').css("border-color","red");
+					$('#cpswd-input').css("display","none")
+					$('#cpswd-success').css("display","none")
+					$('#cpswd-error').css("display","inline-block")
+					$('#cpswd-error').attr("title","两次输入密码不一致!");
+					return;
+				}else{
+					$('#check').css("border-color","green");
+					$('#cpswd-input').css("display","none")
+					$('#cpswd-success').css("display","inline-block")
+					$('#cpswd-error').css("display","none")
+					$('#cpswd-success').attr("title","验证通过!");
+				}
+			})
+			//验证码验证
+			$("#verifycode").blur(function(){
+				if(!$("#verifycode").val()){
+					$("#verifycode").css("border-color","red");
+					return;
+				}else{
+					$("#verifycode").css("border-color","green");
+					return;
+				}
+			})
+		</script>
+	</body>
+</html>

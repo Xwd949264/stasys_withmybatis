@@ -1,0 +1,285 @@
+ul,
+li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.split-line {
+	width: 95%;
+	background-color: #FFFFFF;
+}
+
+#fold-icon,
+#drop-icon {
+	font-size: 14px;
+}
+
+#drop-icon {
+	display: none;
+}
+
+.font-icon {
+	color: lightgray;
+}
+
+.box-shadow-normal {
+	box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .3);
+}
+
+.box-shadow-normal:hover {
+	box-shadow: 5px 10px 20px 5px rgba(0, 0, 0, .4);
+}
+
+/* 导航条 */
+.nav-bar {
+	z-index: 999;
+}
+
+.usercontroll {
+	float: right;
+	display: inline-block;
+	padding-left: 15px;
+	width: 150px;
+	text-align: center;
+}
+
+.usercontroll .usericon {
+	width: 32px;
+	height: 32px;
+}
+
+.usercontroll .user-sub-menu {
+	/* display: flex; */
+	display: none;
+	flex-direction: column;
+	margin: 0;
+	padding: 8px 0 8px 0;
+	margin-top: 4px;
+	width: 130px;
+	text-align: center;
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	border-radius: 0.25rem;
+	box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .3);
+	z-index: 999;
+}
+
+.usercontroll .user-sub-menu li {
+	margin-top: 0px;
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+}
+
+.usercontroll .user-sub-menu li a {
+	color: black;
+	text-decoration: none;
+}
+
+.usercontroll .user-sub-menu li a:hover {
+	font-weight: bold;
+	color: orange;
+}
+
+/* 用户图标 */
+@media screen and (max-width: 768px) {
+	.usercontroll {
+		display: none;
+	}
+}
+
+
+/* 主体内容 */
+.main {
+	margin-top: 90px;
+	padding-top: 0px;
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	width: 100%;
+	min-height: 980px;
+	background-color: #f9f9fa;
+	border-top: 1px solid #CCCCCC;
+}
+
+.left-menu {
+	/* 指定左边部分的px宽度 */
+	width: 250px;
+	/* background-color: #ffffff; */
+	/* background-color: #212529; */
+	border-top: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	background-color: #4e73df;
+	background-image: linear-gradient(180deg, #4e73df 10%, #224abe);
+	background-size: cover
+}
+
+/* 媒体查询 */
+@media screen and (max-width: 768px) {
+
+	/* 标题内容 */
+	.st-title {
+		display: none;
+	}
+
+	/* 左侧菜单宽度 */
+	.left-menu {
+		width: 100px;
+	}
+
+	/* 菜单名称 */
+	.menu-name,
+	.sub-menu-name {
+		display: none;
+	}
+
+	/* 展开/闭合图标 */
+	#fold-icon,
+	#drop-icon {
+		display: none;
+	}
+
+}
+
+.right-content {
+	/* 占据父元素剩余的全部空间 */
+	flex: 1;
+}
+
+.left-menu .st-icon-block {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.left-menu .st-icon-block .st-icon {
+
+	width: 48px;
+	height: 48px;
+	line-height: 48px;
+}
+
+.left-menu .st-icon-block .st-title {
+	font-family: "arial black";
+	color: #FFFFFF;
+}
+
+.left-menu ul {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+.left-menu ul li {
+	padding: 8px 16px;
+	font-size: 18px;
+}
+
+.left-menu ul li a {
+	display: block;
+	padding-left: 20px;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	color: hsla(0, 0%, 100%, .8);
+	/* color: #000000; */
+	text-decoration: none;
+	border-radius: 0.25rem;
+}
+
+.left-menu ul li a:hover {
+	background-color: darkorange;
+}
+
+.left-menu .sub-menu {
+	display: none;
+}
+
+.left-menu .sub-menu li {
+	font-size: 15px;
+}
+
+.left-menu .sub-menu li a:hover {
+	background-color: lightgreen;
+}
+
+/* 基本信息部分---begin */
+.photo-pane-bk {
+	background: #c9d6ff;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, rgb(201, 214, 255), rgb(226, 226, 226));
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, rgb(201, 214, 255), rgb(226, 226, 226));
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.progress-pane-bk {
+	background: #e0eafc;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, rgb(224, 234, 252), rgb(207, 222, 243));
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, rgb(224, 234, 252), rgb(207, 222, 243));
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.basicinfo-pane-bk {
+	background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.signinfo-pane-bk {
+	background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+}
+
+.title-font {
+	color: #5a5c69 !important;
+	font-size: 1.75rem;
+}
+
+.tab-pane-part {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 12px 12px;
+}
+
+.safe-center {
+	margin: 0 auto;
+	width: 450px;
+}
+
+.achievement-upload{
+	margin: 0 auto;
+	width: 900px;
+}
+
+@media screen and (max-width: 768px) {
+	.safe-center {
+		width: 70%;
+	}
+	.achievement-upload{
+		width: 90%;
+	}
+}
+
+.send-verify-code {}
+
+#safecenter .card-body {
+	background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);  
+}
+
+/* 修改-保存信息按钮样式 */
+.btn_basic_modifySave{
+	text-align: center;
+}
+
+
+/* 基本信息部分---end */

@@ -1,0 +1,2445 @@
+<%@ page isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!--<!DOCTYPE html>-->
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no, shrink-to-fit=no">
+    <title>科研教学成果收集系统-注册</title>
+    <!-- 描述信息 -->
+    <meta name="description" content="科研教学成果收集系统 科研成果|教学成果上报 科研成果|教学成果查询 科研成果|教学成果导出"/>
+    <!-- 设置图标 -->
+    <link rel="icon" href="static/resources/icons/favicon.ico"/>
+    <!-- 引入bootstrap-css资源 -->
+    <link rel="stylesheet" type="text/css" href="static/bootstrap4.0/css/bootstrap.min.css"/>
+    <!-- 引入自定义css资源 -->
+    <link rel="stylesheet" type="text/css" href="static/css/prelogin.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/index.css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+<body>
+<div class="container-fluid">
+    <!-- 导航条---begin -->
+    <nav class="nav-bar">
+        <!-- title-img -->
+        <a href="#">
+            <img src="static/resources/imgs/webtitle.png" alt="科研教学成果收集系统" title="科研教学成果收集系统">
+        </a>
+        <!-- 用户图标---begin -->
+        <div class="usercontroll" style="width: 400px;">
+            <div id="" class="main-menu">
+                <div class="user-info">
+                    <span id="username">${sessionScope.login_user.username}</span>
+                    <img class="usericon" src="static/resources/imgs/user-icon1.png" alt="用户管理" title="用户操作">
+                </div>
+                <ul class="sub-menu user-sub-menu">
+                    <li><a href="#"><i class="fa fa-bandcamp font-icon"></i>&nbsp;&nbsp;其它操作</a></li>
+                    <hr class="split-line">
+                    <li><a href="login.jsp"><i
+                            class="fa fa-sign-out font-icon"></i>&nbsp;&nbsp;<span>退出登录</span></a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- 用户图标---end -->
+    </nav>
+    <!-- 导航条---end -->
+    <!-- row flex-xl-nowrap -->
+    <div class="main index-main-content">
+        <!-- 左侧菜单---begin -->
+        <div class="left-menu">
+            <!-- 图标 -->
+            <div class="st-icon-block text-center">
+                <img class="st-icon" src="static/resources/imgs/st_icon.png" title="Science | Education"><span
+                    class="st-title">Science |
+							Education</span>
+            </div>
+            <hr class="split-line">
+            <!-- col-md-3 col-xl-2 bd-sidebar -->
+            <ul id="menu" class="nav">
+                <li class="main-menu">
+                    <a class="active" href="#"><i class="fa fa-user-plus"
+                                                  title="个人信息"></i>&nbsp;&nbsp;&nbsp;<span class="menu-name">个人信息</span>
+                        &nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-right" id="fold-icon"></i> <i
+                                class="fa fa-chevron-down" id="drop-icon"></i></a>
+                    <!-- 子菜单 -->
+                    <ul id="menu" class="sub-menu nav">
+                        <li class="sub-menu-item">
+                            <a href="#userinfo" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">基本信息</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#datastatistic" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">数据统计</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#safecenter" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">安全中心</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="main-menu">
+                    <a class="" href="#upload" data-toggle="tab"> <i class="fa fa-cloud-upload"
+                                                                     title="成果上报"></i>&nbsp;&nbsp;&nbsp;<span
+                            class="menu-name">成果上报</span>
+                        &nbsp;&nbsp;&nbsp;<i class="fa fa-chevron-right" id="fold-icon"></i> <i
+                                class="fa fa-chevron-down" id="drop-icon"></i></a>
+                    <!-- 子菜单 -->
+                    <ul id="menu" class="sub-menu nav">
+                        <li class="sub-menu-item">
+                            <a href="#stuaward" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">学生指导</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#teac_test_award" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">教学竞赛</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#teac_item_award" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">教学项目</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#edureform_item_basicinfo" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">教改项目</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#edureform_piece_basicinfo" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">教改论文</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#scireserch_item_basicinfo" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">科研项目</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#scireserch_award" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">科研奖项</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#sci_piece_basicinfo" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">科研论文</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#publish_book" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">出版教材</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#publish_treatise" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">出版专著</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#patent" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">专利申请</span></a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="#software_work" class="sub-menu-item-a"
+                               data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                    class="sub-menu-name">软著申请</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="main-menu">
+                    <a class="" href="#query" data-toggle="tab"> <i class="fa fa-jsfiddle"
+                                                                    title="成果查询"></i>&nbsp;&nbsp;&nbsp;<span
+                            class="menu-name">成果查询</span></a>
+                </li>
+                <li class="main-menu">
+                    <a class="" href="#detail" data-toggle="tab"> <i class="fa fa-codiepie"
+                                                                     title="成果明细"></i>&nbsp;&nbsp;&nbsp;<span
+                            class="menu-name">成果明细</span></a>
+                </li>
+                <li class="main-menu">
+                    <a class="" href="#exportrecord" data-toggle="tab"> <i class="fa fa-cloud-download"
+                                                                           title="导出记录"></i>&nbsp;&nbsp;&nbsp;<span
+                            class="menu-name">导出记录</span></a>
+                </li>
+                <li class="main-menu">
+                    <a class="" href="#all" data-toggle="tab"> <i class="fa fa-database"
+                                                                  title="成果汇总"></i>&nbsp;&nbsp;&nbsp;<span
+                            class="menu-name">成果汇总</span></a>
+                </li>
+            </ul>
+        </div>
+        <!-- 左侧菜单---end -->
+        <!-- 右侧内容---begin -->
+        <div class="tab-content right-content">
+            <!-- 二级菜单---基本信息---begin -->
+            <div class="tab-pane" id="userinfo">
+                <div class="container-fluid tab-pane-part">
+                    <!-- <h3 class="text-dark mb-4">基本信息</h3> -->
+                    <div class="col-lg-4">
+                        <div class="card mb-3">
+                            <div class="card-body text-center box-shadow-normal photo-pane-bk"><img
+                                    class="rounded-circle mb-3 mt-4" src="static/resources/imgs/scholar.png"
+                                    width="160" height="160">
+                                <div class="mb-3">
+                                    <button class="btn btn-info btn-sm"
+                                            type="button">修改照片
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card box-shadow-normal mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="text-primary font-weight-bold m-0">科研成果</h6>
+                            </div>
+                            <div class="card-body progress-pane-bk">
+                                <h4 class="small font-weight-bold">学生指导<span class="float-right">40%</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-primary" aria-valuenow="40" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 40%;"><span class="sr-only">40%</span>
+                                    </div>
+                                </div>
+                                <h4 class="small font-weight-bold">教学竞赛<span class="float-right">80</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-success" aria-valuenow="20" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 80%;"><span class="sr-only">80%</span>
+                                    </div>
+                                </div>
+
+                                <h4 class="small font-weight-bold">教学获奖<span
+                                        class="float-right">Complete!</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;"><span
+                                            class="sr-only">100%</span></div>
+                                </div>
+
+                                <h4 class="small font-weight-bold">教改项目<span class="float-right">60%</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-warning" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;"><span class="sr-only">60%</span>
+                                    </div>
+                                </div>
+                                <h4 class="small font-weight-bold">教改论文<span class="float-right">80%</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-warning" aria-valuenow="80" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 80%;"><span class="sr-only">80%</span>
+                                    </div>
+                                </div>
+
+
+                                <h4 class="small font-weight-bold">科研项目<span class="float-right">5</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-danger" aria-valuenow="5" aria-valuemin="0"
+                                         aria-valuemax="5" style="width: 5%;"><span class="sr-only">5%</span>
+                                    </div>
+                                </div>
+
+                                <h4 class="small font-weight-bold">科研奖项<span class="float-right">5</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-danger" aria-valuenow="5" aria-valuemin="0"
+                                         aria-valuemax="5" style="width: 5%;"><span class="sr-only">5%</span>
+                                    </div>
+                                </div>
+
+                                <h4 class="small font-weight-bold">科研论文<span class="float-right">5</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-danger" aria-valuenow="5" aria-valuemin="0"
+                                         aria-valuemax="5" style="width: 5%;"><span class="sr-only">5%</span>
+                                    </div>
+                                </div>
+
+
+                                <h4 class="small font-weight-bold">出版教材<span class="float-right">5</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-dark" aria-valuenow="5" aria-valuemin="0"
+                                         aria-valuemax="5" style="width: 5%;"><span class="sr-only">5%</span>
+                                    </div>
+                                </div>
+
+                                <h4 class="small font-weight-bold">出版专著<span class="float-right">5</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-dark" aria-valuenow="5" aria-valuemin="0"
+                                         aria-valuemax="5" style="width: 5%;"><span class="sr-only">5%</span>
+                                    </div>
+                                </div>
+
+                                <h4 class="small font-weight-bold">专利申请<span class="float-right">5</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-dark" aria-valuenow="5" aria-valuemin="0"
+                                         aria-valuemax="5" style="width: 5%;"><span class="sr-only">5%</span>
+                                    </div>
+                                </div>
+
+                                <h4 class="small font-weight-bold">软著申请<span class="float-right">5</span></h4>
+                                <div class="progress progress-sm mb-3">
+                                    <div class="progress-bar bg-dark" aria-valuenow="5" aria-valuemin="0"
+                                         aria-valuemax="5" style="width: 5%;"><span class="sr-only">5%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card mb-3 box-shadow-normal basicinfo-pane-bk">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 font-weight-bold">基本信息</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group"><label
+                                                            for="basic_name"><strong>姓名</strong></label><input
+                                                            class="form-control" type="text" id="basic_name"
+                                                            placeholder="name" name="name" disabled></div>
+                                                </div>
+                                                <div class="col-md-8 row">
+                                                    <div class="form-group col-md-6">
+                                                        <label
+                                                                for="basic_academy_item"><strong>学院</strong></label>
+                                                        <select class="custom-select mr-sm-2" id="basic_academy_item" disabled>
+                                                            <option selected>choose one</option>
+                                                        </select></div>
+
+                                                    <div class="form-group col-md-6">
+                                                        <label
+                                                                for="basic_dept_item"><strong>系别</strong></label>
+                                                        <select class="custom-select mr-sm-2" id="basic_dept_item" disabled>
+                                                            <option selected>choose one</option>
+                                                        </select></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label
+                                                            for="basic_email"><strong>Email</strong></label><input
+                                                            class="form-control" type="text" id="basic_email"
+                                                            placeholder="example:xxx@xx.com" name="email" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label
+                                                            for="basic_workno"><strong>职工号</strong></label><input
+                                                            class="form-control" type="text" id="basic_workno"
+                                                            placeholder="建议填写" name="workno" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label
+                                                            for="basic_telnum"><strong>Tel</strong></label><input
+                                                            class="form-control" type="text" id="basic_telnum"
+                                                            placeholder="example:1xx-xxxx-xxxx" name="tel" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label
+                                                            for="basic_title"><strong>职称</strong></label><input
+                                                            class="form-control" type="text" id="basic_title"
+                                                            placeholder="example:professor" name="title" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label
+                                                            for="basic_age"><strong>年龄</strong></label><input
+                                                            class="form-control" type="text" id="basic_age"
+                                                            placeholder="example:26" name="age" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label
+                                                            for="basic_gender"><strong>性别</strong></label><input
+                                                            class="form-control" type="text" id="basic_gender"
+                                                            placeholder="example:男/女" name="gender" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label
+                                                            for="basic_address"><strong>住址</strong></label><input
+                                                            class="form-control" type="text" id="basic_address"
+                                                            placeholder="可选" name="address" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+										<div class="row btn_basic_modifySave">
+											<div id="" class="col-md-6">
+												<button class="btn btn-info btn-sm" id="btn_modifyUserInfo">修改信息
+												</button>
+											</div>
+											<div id="" class="col-md-6">
+												<button class="btn btn-success btn-sm" id="btn_saveUserInfo">保存设置
+												</button>
+											</div>
+										</div>
+                                    </div>
+                                </div>
+                                <div class="card box-shadow-normal signinfo-pane-bk">
+                                    <div class="card-header py-3">
+                                        <p class="text-primary m-0 font-weight-bold">自定义设置</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-group"><label
+                                                    for="address"><strong>个性签名</strong></label><input
+                                                    class="form-control" type="text"
+                                                    placeholder="清晨起来,拥抱太阳,满满的正能量!" name="address"></div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label
+                                                            for="city"><strong>城市</strong></label><input
+                                                            class="form-control" type="text" placeholder="北京"
+                                                            name="city"></div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label
+                                                            for="country"><strong>国家</strong></label><input
+                                                            class="form-control" type="text" placeholder="中国"
+                                                            name="country"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-primary btn-sm"
+                                                        type="submit">保存设置
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 二级菜单---基本信息---end -->
+            <div class="tab-pane" id="datastatistic">
+                <div class="container-fluid tab-pane-part">
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Dashboard</h3><a
+                            class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i
+                            class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 二级菜单---安全中心---begin -->
+            <div class="tab-pane" id="safecenter">
+                <div class="container-fluid">
+                    <hr>
+                    <div class="card box-shadow-normal  safe-center">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">安全中心</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                               aria-describedby="emailHelp" disabled placeholder="xxx@xxx.com">
+                                        <small id="emailHelp"
+                                               class="form-text text-muted">通过邮箱接收验证码完成密码修改.</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">请输入新密码</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">请确认新密码</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                    </div>
+                                    <!-- 发送验证码 -->
+                                    <div class="form-group row send-verify-code">
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="请输入验证码"
+                                                   name="verifycode">
+                                        </div>
+                                        <div class="col">
+                                            <a class="btn btn-info" href="#" role="button">点击发送验证码</a>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-success btn-lg btn-block">确认修改</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 二级菜单---安全中心---end -->
+
+            <!-- 成果上报-指导学生获奖---begin -->
+            <div class="tab-pane" id="stuaward">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">指导学生获奖</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1" selected>学生指导</option>
+                                                <option value="2">教学竞赛</option>
+                                                <option value="3">教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5">教改论文</option>
+                                                <option value="6">科研项目</option>
+                                                <option value="7">科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9">出版教材</option>
+                                                <option value="10">出版专著</option>
+                                                <option value="11">专利申请</option>
+                                                <option value="12">软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label for="stuname">学生姓名</label>
+                                        <input type="text" class="form-control" id="stuname" name="stuname"
+                                               aria-describedby="emailHelp" placeholder="例如：张三,李四">
+                                        <small id="emailHelp" class="form-text text-muted">若有多个学生-请以 <span
+                                                class="text-primary">逗号 ','</span> 分隔</small>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="itemname">项目名称</label>
+                                            <input type="text" class="form-control" id="itemname"
+                                                   name="itemname">
+                                            <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                    class="text-primary">直接填写名称</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="awardname">奖项名称</label>
+                                            <input type="text" class="form-control" id="awardname"
+                                                   name="awardname">
+                                            <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                    class="text-primary">直接填写名称</span></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="awardlevel">奖项级别</label>
+                                            <input type="text" class="form-control" id="awardlevel"
+                                                   name="awardlevel">
+                                            <small id="emailHelp" class="form-text text-muted"> 建议填写为：<span
+                                                    class="text-primary">国家/省/校/院级-一/二/三等奖、其它</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="awarddate">获奖时间</label>
+                                            <input type="date" class="form-control" id="awarddate"
+                                                   name="awarddate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="awardlunit">颁奖单位</label>
+                                            <input type="text" class="form-control" id="awardlunit"
+                                                   name="awardlunit" placeholder="例如：单位A,单位B">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多个单位名称-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 成果上报-指导学生获奖---end -->
+
+            <!-- 成果上报-教学竞赛获奖---begin -->
+            <div class="tab-pane" id="teac_test_award">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">教学竞赛获奖</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1">学生指导</option>
+                                                <option value="2" selected>教学竞赛</option>
+                                                <option value="3">教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5">教改论文</option>
+                                                <option value="6">科研项目</option>
+                                                <option value="7">科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9">出版教材</option>
+                                                <option value="10">出版专著</option>
+                                                <option value="11">专利申请</option>
+                                                <option value="12">软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="awardname">奖项名称</label>
+                                                <input type="text" class="form-control" id="awardname"
+                                                       name="awardname">
+                                                <small id="emailHelp" class="form-text text-muted">
+                                                    无需加书名号《》,<span class="text-primary">直接填写名称</span></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="awardlevel">奖项级别</label>
+                                            <input type="text" class="form-control" id="awardlevel"
+                                                   name="awardlevel">
+                                            <small id="emailHelp" class="form-text text-muted"> 建议填写为：<span
+                                                    class="text-primary">国家/省/校/院级-一/二/三等奖、其它</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="awarddate">获奖时间</label>
+                                            <input type="date" class="form-control" id="awarddate"
+                                                   name="awarddate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="awardlunit">颁奖单位</label>
+                                            <input type="text" class="form-control" id="awardlunit"
+                                                   name="awardlunit" placeholder="例如：单位A,单位B">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多个单位名称-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 成果上报---教学竞赛获奖---end -->
+
+            <!-- 成果上报-教学项目获奖---begin -->
+            <div class="tab-pane" id="teac_item_award">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">教学项目获奖</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1">学生指导</option>
+                                                <option value="2">教学竞赛</option>
+                                                <option value="3" selected>教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5">教改论文</option>
+                                                <option value="6">科研项目</option>
+                                                <option value="7">科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9">出版教材</option>
+                                                <option value="10">出版专著</option>
+                                                <option value="11">专利申请</option>
+                                                <option value="12">软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label for="stuname">项目名称</label>
+                                        <input type="text" class="form-control" id="stuname" name="stuname"
+                                               aria-describedby="emailHelp" placeholder="">
+                                        <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                class="text-primary">直接填写名称</span></small>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="awardname">奖项名称</label>
+                                            <input type="text" class="form-control" id="awardname"
+                                                   name="awardname">
+                                            <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                    class="text-primary">直接填写名称</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="rankno">个人排名</label>
+                                            <input type="text" class="form-control" id="rankno" name="rankno"
+                                                   value="1">
+                                            <small id="emailHelp" class="form-text text-muted"> 此项可填写：<span
+                                                    class="text-primary">个人在团队中的名称排名[若为1人,默认为1]</span></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="awardlevel">奖项级别</label>
+                                            <input type="text" class="form-control" id="awardlevel"
+                                                   name="awardlevel">
+                                            <small id="emailHelp" class="form-text text-muted"> 建议填写为：<span
+                                                    class="text-primary">国家/省/校/院级-一/二/三等奖、其它</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="awarddate">获奖时间</label>
+                                            <input type="date" class="form-control" id="awarddate"
+                                                   name="awarddate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="awardlunit">颁奖单位</label>
+                                            <input type="text" class="form-control" id="awardlunit"
+                                                   name="awardlunit" placeholder="例如：单位A,单位B">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多个单位名称-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 成果上报-教学项目获奖---end -->
+
+            <!-- 成果上报-教改项目获奖---begin -->
+            <div class="tab-pane" id="edureform_item_basicinfo">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">教改项目获奖</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1">学生指导</option>
+                                                <option value="2">教学竞赛</option>
+                                                <option value="3" selected>教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5">教改论文</option>
+                                                <option value="6">科研项目</option>
+                                                <option value="7">科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9">出版教材</option>
+                                                <option value="10">出版专著</option>
+                                                <option value="11">专利申请</option>
+                                                <option value="12">软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="itemname">项目名称</label>
+                                            <input type="text" class="form-control" id="itemname"
+                                                   name="itemname" aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                    class="text-primary">直接填写名称</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="itemid">项目编号</label>
+                                            <input type="text" class="form-control" id="itemid" name="itemid"
+                                                   aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted"> 按照实际编号填写</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="itemresponser">总负责人</label>
+                                            <input type="text" class="form-control" id="itemresponser"
+                                                   name="itemresponser">
+                                            <small id="emailHelp" class="form-text text-muted"> 总负责人名称-若有多个-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="agreedate">立项时间</label>
+                                            <input type="date" class="form-control" id="agreedate"
+                                                   name="agreedate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="itemlevel">项目级别</label>
+                                            <input type="text" class="form-control" id="itemlevel"
+                                                   name="itemlevel">
+                                            <small id="emailHelp" class="form-text text-muted"> 建议填写为：<span
+                                                    class="text-primary">市厅/省部/国家级、其它</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="applyunit">立项单位</label>
+                                            <input type="text" class="form-control" id="applyunit"
+                                                   name="applyunit">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="agreeunit">批准单位</label>
+                                            <input type="text" class="form-control" id="agreeunit"
+                                                   name="agreeunit" placeholder="例如：单位A,单位B">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多个单位名称-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="conclusion">鉴定结论</label>
+                                            <textarea class="form-control" id="conclusion" name="conclusion"
+                                                      placeholder="如有需要,请填写鉴定结论"></textarea>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="role">您的身份</label>
+                                            <select class="custom-select mr-sm-2" id="role" name="partnerrole">
+                                                <option value="1" selected>负责人</option>
+                                                <option value="2">参与人</option>
+                                            </select>
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                <span class="text-primary">请选择合适的参与身份.</span> </small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 成果上报-教改项目获奖---end -->
+
+            <!-- 成果上报-教改论文发表---begin -->
+            <div class="tab-pane" id="edureform_piece_basicinfo">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">教改论文发表</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1">学生指导</option>
+                                                <option value="2">教学竞赛</option>
+                                                <option value="3">教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5" selected>教改论文</option>
+                                                <option value="6">科研项目</option>
+                                                <option value="7">科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9">出版教材</option>
+                                                <option value="10">出版专著</option>
+                                                <option value="11">专利申请</option>
+                                                <option value="12">软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="piecename">论文题目</label>
+                                            <input type="text" class="form-control" id="piecename"
+                                                   name="piecename" aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                    class="text-primary">直接填写名称</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="publishdate">发表时间</label>
+                                            <input type="date" class="form-control" id="publishdate"
+                                                   name="publishdate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="journalname">期刊名称</label>
+                                            <input type="text" class="form-control" id="journalname"
+                                                   name="journalname" aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted">若有多个期刊同时发表,请分两次上报
+                                                <span class="text-primary">或者取较高层次期刊填写</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="journallevel">期刊级别</label>
+                                            <input type="text" class="form-control" id="journallevel"
+                                                   name="journallevel">
+                                            <small id="emailHelp" class="form-text text-muted"> 填写建议：<span
+                                                    class="text-primary">CSSCI收录期刊、核心期刊、一般CN期刊教研论文、其它期刊</span></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="volumnno">卷号</label>
+                                            <input type="text" class="form-control" id="volumnno"
+                                                   name="volumnno">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">请填写数字</span></small>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="periodno">期号</label>
+                                            <input type="text" class="form-control" id="periodno"
+                                                   name="periodno">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">请填写数字</span></small>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="pagestart">起始页码</label>
+                                            <input type="text" class="form-control" id="pagestart"
+                                                   name="pagestart">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">请填写数字</span></small>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="pageend">终止页码</label>
+                                            <input type="text" class="form-control" id="pageend" name="pageend">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">请填写数字</span></small>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="volumnno">doi号</label>
+                                            <input type="text" class="form-control" id="volumnno"
+                                                   name="volumnno">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">选填</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="periodno">收录号</label>
+                                            <input type="text" class="form-control" id="periodno"
+                                                   name="periodno">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">请填写数字</span></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="author">作者</label>
+                                            <input type="text" class="form-control" id="author" name="author"
+                                                   placeholder="例如：张三,李四">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多位作者-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="telauthor">通讯作者</label>
+                                            <input type="text" class="form-control" id="telauthor"
+                                                   name="telauthor" placeholder="例如：王五,赵六">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多位通讯作者-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="rankno">作者排名</label>
+                                            <input type="text" class="form-control" name="rankno" id="rankno"
+                                                   value=""/>
+                                            <small id="emailHelp" class="form-text text-muted">以第几作者发表论文.
+                                                <span class="text-primary">例如：如果您是第一作者,那么就填数字1,以此类推.</span>
+                                            </small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 成果上报-教改论文获奖---end -->
+
+
+            <!-- 成果上报-教改项目获奖---begin -->
+            <div class="tab-pane" id="scireserch_item_basicinfo">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">科研项目获奖</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1">学生指导</option>
+                                                <option value="2">教学竞赛</option>
+                                                <option value="3">教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5">教改论文</option>
+                                                <option value="6" selected>科研项目</option>
+                                                <option value="7">科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9">出版教材</option>
+                                                <option value="10">出版专著</option>
+                                                <option value="11">专利申请</option>
+                                                <option value="12">软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="itemname">项目名称</label>
+                                            <input type="text" class="form-control" id="itemname"
+                                                   name="itemname" aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                    class="text-primary">直接填写名称</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="itemid">项目编号</label>
+                                            <input type="text" class="form-control" id="itemid" name="itemid"
+                                                   aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted"> 按照实际编号填写</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="itemresponser">总负责人</label>
+                                            <input type="text" class="form-control" id="itemresponser"
+                                                   name="itemresponser">
+                                            <small id="emailHelp" class="form-text text-muted"> 总负责人名称-若有多个-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="agreedate">立项时间</label>
+                                            <input type="date" class="form-control" id="agreedate"
+                                                   name="agreedate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="itemlevel">项目类别</label>
+                                            <input type="text" class="form-control" id="itemlevel"
+                                                   name="itemlevel">
+                                            <small id="emailHelp" class="form-text text-muted"> <span
+                                                    class="text-primary">请按照项目类别信息填写</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="agreeunit">批准单位</label>
+                                            <input type="text" class="form-control" id="agreeunit"
+                                                   name="agreeunit" placeholder="例如：单位A,单位B">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多个单位名称-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="startdate">启动时间</label>
+                                            <input type="date" class="form-control" id="startdate"
+                                                   name="startdate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="enddate">结项时间</label>
+                                            <input type="date" class="form-control" id="enddate" name="enddate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="fee">经费(万元)</label>
+                                            <input type="text" class="form-control" id="fee" name="fee">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="conclusion">鉴定结论</label>
+                                            <textarea class="form-control" id="conclusion" name="conclusion"
+                                                      placeholder="如有需要,请填写鉴定结论"></textarea>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="role">您的身份</label>
+                                            <select class="custom-select mr-sm-2" id="role" name="partnerrole">
+                                                <option value="1" selected>负责人</option>
+                                                <option value="2">参与人</option>
+                                            </select>
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                <span class="text-primary">请选择合适的参与身份.</span> </small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 成果上报-科研项目获奖---end -->
+
+            <!-- 成果上报-科研奖项---begin -->
+            <div class="tab-pane" id="scireserch_award">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">科研奖项</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1">学生指导</option>
+                                                <option value="2">教学竞赛</option>
+                                                <option value="3">教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5">教改论文</option>
+                                                <option value="6">科研项目</option>
+                                                <option value="7" selected>科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9">出版教材</option>
+                                                <option value="10">出版专著</option>
+                                                <option value="11">专利申请</option>
+                                                <option value="12">软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="proname">项目名称</label>
+                                                <input type="text" class="form-control" id="proname"
+                                                       name="proname">
+                                                <small id="emailHelp" class="form-text text-muted">
+                                                    无需加书名号《》,<span class="text-primary">直接填写名称</span></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="awardname">奖项名称</label>
+                                                <input type="text" class="form-control" id="awardname"
+                                                       name="awardname">
+                                                <small id="emailHelp" class="form-text text-muted">
+                                                    无需加书名号《》,<span class="text-primary">直接填写名称</span></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="awardteam">获奖人</label>
+                                            <input type="text" class="form-control" id="awardteam"
+                                                   name="awardteam" placeholder="例如：张三,李四">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                若有多位获奖人-姓名请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="rankno">排名</label>
+                                            <input type="text" class="form-control" id="rankno" name="rankno"
+                                                   value="1">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                第n获奖人请填写数字n,
+                                                <span class="text-primary">例如:第一获奖人,填写数字1</span></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="awardlevel">奖项等级</label>
+                                            <input type="text" class="form-control" id="awardlevel"
+                                                   name="awardlevel">
+                                            <small id="emailHelp" class="form-text text-muted"> 建议填写为：<span
+                                                    class="text-primary">国家/省/校/院级-一/二/三等奖、其它</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="awarddate">获奖时间</label>
+                                            <input type="date" class="form-control" id="awarddate"
+                                                   name="awarddate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="awardlunit">颁奖单位</label>
+                                            <input type="text" class="form-control" id="awardlunit"
+                                                   name="awardlunit" placeholder="例如：单位A,单位B">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多个单位名称-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 成果上报-科研奖项---end -->
+
+
+            <!-- 成果上报-科研论文---begin -->
+            <div class="tab-pane" id="sci_piece_basicinfo">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">科研论文发表</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1">学生指导</option>
+                                                <option value="2">教学竞赛</option>
+                                                <option value="3">教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5" selected>教改论文</option>
+                                                <option value="6">科研项目</option>
+                                                <option value="7">科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9">出版教材</option>
+                                                <option value="10">出版专著</option>
+                                                <option value="11">专利申请</option>
+                                                <option value="12">软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="piecename">论文题目</label>
+                                            <input type="text" class="form-control" id="piecename"
+                                                   name="piecename" aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                    class="text-primary">直接填写名称</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="publishdate">发表时间</label>
+                                            <input type="date" class="form-control" id="publishdate"
+                                                   name="publishdate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="journalname">期刊名称</label>
+                                            <input type="text" class="form-control" id="journalname"
+                                                   name="journalname" aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted">若有多个期刊同时发表,请分两次上报
+                                                <span class="text-primary">或者取较高层次期刊填写</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="journallevel">期刊级别</label>
+                                            <input type="text" class="form-control" id="journallevel"
+                                                   name="journallevel">
+                                            <small id="emailHelp" class="form-text text-muted"> 填写建议：<span
+                                                    class="text-primary">CSSCI收录期刊、核心期刊、一般CN期刊教研论文、其它期刊</span></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="volumnno">卷号</label>
+                                            <input type="text" class="form-control" id="volumnno"
+                                                   name="volumnno">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">请填写数字</span></small>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="periodno">期号</label>
+                                            <input type="text" class="form-control" id="periodno"
+                                                   name="periodno">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">请填写数字</span></small>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="pagestart">起始页码</label>
+                                            <input type="text" class="form-control" id="pagestart"
+                                                   name="pagestart">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">请填写数字</span></small>
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="pageend">终止页码</label>
+                                            <input type="text" class="form-control" id="pageend" name="pageend">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">请填写数字</span></small>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="volumnno">doi号</label>
+                                            <input type="text" class="form-control" id="volumnno"
+                                                   name="volumnno">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">选填</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="periodno">收录号</label>
+                                            <input type="text" class="form-control" id="periodno"
+                                                   name="periodno">
+                                            <small id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-primary">请填写数字</span></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="author">作者</label>
+                                            <input type="text" class="form-control" id="author" name="author"
+                                                   placeholder="例如：张三,李四">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多位作者-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="telauthor">通讯作者</label>
+                                            <input type="text" class="form-control" id="telauthor"
+                                                   name="telauthor" placeholder="例如：王五,赵六">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多位通讯作者-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="rankno">作者排名</label>
+                                            <input type="text" class="form-control" name="rankno" id="rankno"
+                                                   value=""/>
+                                            <small id="emailHelp" class="form-text text-muted">以第几作者发表论文.
+                                                <span class="text-primary">例如：如果您是第一作者,那么就填数字1,以此类推.</span>
+                                            </small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 成果上报-科研论文---end -->
+
+            <!-- 成果上报-出版教材---begin -->
+            <div class="tab-pane" id="publish_book">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">出版教材</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1">学生指导</option>
+                                                <option value="2">教学竞赛</option>
+                                                <option value="3">教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5">教改论文</option>
+                                                <option value="6">科研项目</option>
+                                                <option value="7">科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9" selected>出版教材</option>
+                                                <option value="10">出版专著</option>
+                                                <option value="11">专利申请</option>
+                                                <option value="12">软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="bookname">教材名称</label>
+                                            <input type="text" class="form-control" id="bookname"
+                                                   name="bookname" aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                    class="text-primary">直接填写名称</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="publishdate">出版时间</label>
+                                            <input type="date" class="form-control" id="publishdate"
+                                                   name="publishdate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="publisher">出版社</label>
+                                            <input type="text" class="form-control" id="publisher"
+                                                   name="publisher" aria-describedby="emailHelp" placeholder="">
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="author">作者</label>
+                                            <input type="text" class="form-control" id="author" name="author"
+                                                   placeholder="例如：张三,李四">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多位作者-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="wordnum">字数/个</label>
+                                            <input type="text" class="form-control" id="wordnum" name="wordnum">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">请参考教材编目数据填写具体数字-<span
+                                                    class="text-primary">字数单位:个</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="periodno">ISBN</label>
+                                            <input type="text" class="form-control" id="periodno"
+                                                   name="periodno">
+                                            <small id="emailHelp" class="form-text text-muted">请参考教材编目数据填写:<span
+                                                    class="text-primary">ISBN-国际标准书号</span></small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <label for="planbook">规划教材</label>
+                                            <input type="text" class="form-control" id="planbook"
+                                                   name="planbook" placeholder="例如：高等学校计算机类十二五规划教材">
+                                            <small id="emailHelp" class="form-text text-muted">请参考教材编目数据填写.
+                                            </small>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="rankno">作者排名</label>
+                                            <input type="text" class="form-control" name="rankno" id="rankno"
+                                                   value="1"/>
+                                            <small id="emailHelp" class="form-text text-muted">教材的作者排名.
+                                                <span class="text-primary">例如：如果您是第一作者,那么就填数字1,以此类推.</span>
+                                            </small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 成果上报-出版教材---end -->
+
+            <!-- 成果上报-出版专著---begin -->
+            <div class="tab-pane" id="publish_treatise">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">出版专著</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1">学生指导</option>
+                                                <option value="2">教学竞赛</option>
+                                                <option value="3">教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5">教改论文</option>
+                                                <option value="6">科研项目</option>
+                                                <option value="7">科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9">出版教材</option>
+                                                <option value="10" selected>出版专著</option>
+                                                <option value="11">专利申请</option>
+                                                <option value="12">软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="treatisename">专著名称</label>
+                                            <input type="text" class="form-control" id="treatisename"
+                                                   name="treatisename" aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                    class="text-primary">直接填写名称</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="publishdate">出版时间</label>
+                                            <input type="date" class="form-control" id="publishdate"
+                                                   name="publishdate">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                点击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="publisher">出版社</label>
+                                            <input type="text" class="form-control" id="publisher"
+                                                   name="publisher" aria-describedby="emailHelp" placeholder="">
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="author">作者</label>
+                                            <input type="text" class="form-control" id="author" name="author"
+                                                   placeholder="例如：张三,李四">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多位作者-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="wordnum">字数/个</label>
+                                            <input type="text" class="form-control" id="wordnum" name="wordnum">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">请参考教材编目数据填写具体数字-<span
+                                                    class="text-primary">字数单位:个</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="periodno">ISBN</label>
+                                            <input type="text" class="form-control" id="periodno"
+                                                   name="periodno">
+                                            <small id="emailHelp" class="form-text text-muted">请参考教材编目数据填写:<span
+                                                    class="text-primary">ISBN-国际标准书号</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="rankno">作者排名</label>
+                                            <input type="text" class="form-control" name="rankno" id="rankno"
+                                                   value="1"/>
+                                            <small id="emailHelp" class="form-text text-muted">教材的作者排名.
+                                                <span class="text-primary">例如：如果您是第一作者,那么就填数字1,以此类推.</span>
+                                            </small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 成果上报-出版专著---end -->
+
+            <!-- 成果上报-专利---begin -->
+            <div class="tab-pane" id="patent">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">专利上报</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1">学生指导</option>
+                                                <option value="2">教学竞赛</option>
+                                                <option value="3">教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5">教改论文</option>
+                                                <option value="6">科研项目</option>
+                                                <option value="7">科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9">出版教材</option>
+                                                <option value="10">出版专著</option>
+                                                <option value="11" selected>专利申请</option>
+                                                <option value="12">软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="patentname">专利名称</label>
+                                            <input type="text" class="form-control" id="patentname"
+                                                   name="patentname" aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                    class="text-primary">直接填写名称</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="publishdate">专利类型</label>
+                                            <select id="inputState" class="form-control">
+                                                <option selected>Choose...</option>
+                                                <option>发明专利</option>
+                                                <option>实用新型</option>
+                                                <option>外观设计</option>
+                                                <option>国际专利</option>
+                                            </select>
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                请选择对应的专利类型<span
+                                                    class="text-primary">发明专利、实用新型、外观设计、国际专利</span></small>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="unit">单位</label>
+                                            <input type="text" class="form-control" id="unit" name="unit"
+                                                   aria-describedby="emailHelp" placeholder="">
+
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="author">专利人</label>
+                                            <input type="text" class="form-control" id="author" name="author"
+                                                   placeholder="例如：张三,李四">
+                                            <small id="emailHelp" class="form-text text-muted"> 若专利人有多位-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-6">
+                                            <label for="requestno">专利申请号</label>
+                                            <input type="text" class="form-control" id="requestno"
+                                                   name="requestno">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">请填写知识产权局官网可查的专利申请号</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="authorizationno">专利授权号</label>
+                                            <input type="text" class="form-control" id="authorizationno"
+                                                   name="authorizationno">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">请填写知识产权局官网可查的专利授权号</small>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="rankno">专利人排名</label>
+                                            <input type="text" class="form-control" name="rankno" id="rankno"
+                                                   value="1"/>
+                                            <small id="emailHelp" class="form-text text-muted">教材的作者排名.
+                                                <span class="text-primary">例如：如果您是第一专利人,那么就填数字1,以此类推.</span>
+                                            </small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 成果上报-专利---end -->
+
+
+            <!-- 成果上报-软件著作权---begin -->
+            <div class="tab-pane" id="software_work">
+                <hr>
+                <div class="container-fluid tab-pane-part">
+                    <div class="card box-shadow-normal  achievement-upload">
+                        <div class="card-header">
+                            <p class="text-primary m-0 font-weight-bold">软件著作</p>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="uploader">上报人</label>
+                                            <input type="text" class="form-control" id="uploader" value="XXX"
+                                                   name="uploader" placeholder="" disabled>
+                                            <small id="passwordHelpBlock"
+                                                   class="form-text text-muted">自动获取上报人姓名,如有错误,点击此处-<a
+                                                    href="#">重新获取</a></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="achievetype">成果类型</label>
+                                            <select class="custom-select mr-sm-2" id="achievetype"
+                                                    name="achievetype" disabled>
+                                                <option value="1">学生指导</option>
+                                                <option value="2">教学竞赛</option>
+                                                <option value="3">教学项目</option>
+                                                <option value="4">教改项目</option>
+                                                <option value="5">教改论文</option>
+                                                <option value="6">科研项目</option>
+                                                <option value="7">科研奖项</option>
+                                                <option value="8">科研论文</option>
+                                                <option value="9">出版教材</option>
+                                                <option value="10">出版专著</option>
+                                                <option value="11">专利申请</option>
+                                                <option value="12" selected>软著申请</option>
+                                            </select>
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">请确认选择成果类型-<span
+                                                    class="text-warning">以确保下设表单可用</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="patentname">软著名称</label>
+                                            <input type="text" class="form-control" id="patentname"
+                                                   name="patentname" aria-describedby="emailHelp" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted"> 无需加书名号《》,<span
+                                                    class="text-primary">直接填写名称</span></small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="registno">登记号</label>
+                                            <input type="text" class="form-control" name="registno"
+                                                   id="registno" value=""/>
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                请填写中国版权保护中心(<span
+                                                    class="text-primary">https://www.ccopyright.com.cn/</span>)可查的登记号.</small>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="author">软著作者</label>
+                                            <input type="text" class="form-control" id="author" name="author"
+                                                   placeholder="例如：张三,李四">
+                                            <small id="emailHelp" class="form-text text-muted"> 若有多位作者-请以
+                                                <span class="text-primary">逗号 ','</span> 分隔</small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="publishdate">首次发表时间</label>
+                                            <input type="date" class="form-control" id="publishdate"
+                                                   name="publishdate" placeholder="">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                击最右侧图标,选择日期：<span
+                                                    class="text-primary">[yyyy-MM-dd]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="rankno">专利人排名</label>
+                                            <input type="text" class="form-control" name="rankno" id="rankno"
+                                                   value="1"/>
+                                            <small id="emailHelp" class="form-text text-muted">教材的作者排名.
+                                                <span class="text-primary">例如：如果您是第一专利人,那么就填数字1,以此类推.</span>
+                                            </small>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="evidence">实证文件</label>
+                                            <input type="file" class="form-control" id="evidence"
+                                                   accept="application/pdf" name="evidence" placeholder="">
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted">若有多个文件,请合并后上传-<span
+                                                    class="text-primary">[文件类型：*.pdf]</span></small>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">稍后上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp" class="form-text text-muted"><span
+                                                    class="text-info">选择稍后上报,将为您记录本次填写的上报信息,之后仍可继续上报</span></small>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit"
+                                                    class="btn btn-success btn-lg btn-block">立即上报
+                                            </button>
+                                            <small
+                                                    id="emailHelp"
+                                                    class="form-text text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
+                                                    class="form-check-input" type="checkbox"
+                                                    id="gridCheck">上报前请确认：<span
+                                                    class="text-danger">当前账户与实际上报人一致,否则会导致信息错乱！</span></small>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 成果上报-软件著作权---end -->
+
+            <div class="tab-pane" id="query">
+                成果查询内容
+            </div>
+            <div class="tab-pane" id="detail">
+                成果明细内容
+            </div>
+            <div class="tab-pane" id="exportrecord">
+                导出记录
+            </div>
+            <div class="tab-pane" id="all">
+                成果汇总
+            </div>
+        </div>
+        <!-- 右侧内容---end -->
+    </div>
+</div>
+
+<!-- 引入js资源 -->
+<script type="text/javascript" src="static/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="static/bootstrap4.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="static/js/index.js"></script>
+<script type="text/javascript" src="static/js/plugin.js"></script>
+<script type="text/javascript">
+    $(function () {
+        console.log($('#menu li:eq(0) a'))
+        //控制显示默认的信息
+        $('#menu li:eq(1) a').tab('show');
+    });
+    //动态加载数据
+    //学院动态添加数据
+    $("#academy_item").empty();
+    $.ajax({
+        url: "http://localhost:8010/stasys_v2/get/academylist.do",
+        method: "POST",
+        async: true,
+        data: {"emailaddress": $("#email").val()},
+        dataType: "json",
+        success: function (result, status, xhr) {
+            console.log(result)
+            result.forEach(function (e) {
+                $("#academy_item").append("<option value=" + e.academyno + ">" + e.academyname + "</option>")
+            });
+        }
+    });
+	$("#academy_item").click(function(){
+		console.log("click")
+	})
+    //当学院信息改变-动态修改系别数据
+    $("#academy_item").change(function () {
+        //清空系别子元素-
+        $("#dept_item").empty();
+        //获取院系元素信息
+        var selectedOption = $("#academy_item").find("option:selected");
+        console.log($(selectedOption).attr("value"))
+        //发行信息请求系别数据
+        $.ajax({
+            url: "http://localhost:8010/stasys_v2/get/deptlist.do",
+            method: "POST",
+            async: true,
+            data: {"academyno": $(selectedOption).attr("value")},
+            dataType: "json",
+            success: function (result, status, xhr) {
+                console.log("响应信息")
+                console.log(result)
+                result.forEach(function (e) {
+                    $("#dept_item").append("<option value=" + e.deptno + ">" + e.deptname + "</option>")
+                });
+            }
+        })
+    });
+
+	/**
+	 * 设置一组元素标签是否可用
+	 * @param {Object} isEnabled true-可用;false-不可用
+	 * @param {Object} elements 元素标签组
+	 */
+	function setEnabled(isEnabled,elements){
+		for (var i = 0; i < elements.length; i++) {
+			$("#"+elements[i]).attr("disabled",isEnabled);
+		}
+	}
+	
+    /**
+     * 修改用户信息
+     * */
+    $("#btn_modifyUserInfo").click(function (event) {
+		//移除input的disabled属性——$(selector).removeAttr(attribute)
+		$("#basic_name").attr("disabled", false);
+		var elems=["basic_name","basic_academy_item","basic_dept_item","basic_email","basic_workno","basic_telnum","basic_title","basic_age","basic_gender","basic_address"];
+		setEnabled(false,elems);
+	});
+	
+	$("#basic_dept_item").find("option:selected").attr("value","hello")
+
+
+    /**
+     * 保存用户信息设置
+     */
+	$("#btn_saveUserInfo").click(function (event) {
+		// event.stopPropagation();//阻止事件向上冒泡
+		//添加input的disabled属性-$('#areaSelect').attr("disabled",false);
+		var elems=["basic_name","basic_academy_item","basic_dept_item","basic_email","basic_workno","basic_telnum","basic_title","basic_age","basic_gender","basic_address"];
+		setEnabled(true,elems);
+
+	});
+
+
+</script>
+</body>
+</html>
