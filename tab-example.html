@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入bootstrap-css资源 -->
+		<link rel="stylesheet" href="static/bootstrap4.0/css/bootstrap.min.css" />
+	</head>
+	<body>
+		
+		<!-- 定义菜单---begin -->
+		<ul id="menu" class="nav">
+			<li class="">
+				<a href="#userinfo" data-toggle="tab">个人信息</a>
+			</li>
+			<li><a href="#query" data-toggle="tab">成果查询</a></li>
+		</ul>
+		<!-- 定义菜单---end -->
+		
+		<!-- 定义内容面板---begin -->
+		<div class="tab-content">
+			<div class="tab-pane" id="userinfo">
+				个人信息内容
+			</div>
+			<div class="tab-pane" id="query">
+				成果查询内容
+			</div>
+		</div>
+		<!-- 定义内容面板---end -->
+
+		<!-- 引入js资源 -->
+		<script type="text/javascript" src="static/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="static/bootstrap4.0/js/bootstrap.min.js"></script>
+		<script>
+			$(function() {
+				console.log($('#menu li:eq(1) a'))
+		
+				$('#menu li:eq(0) a').tab('show');
+			});
+		</script>
+	</body>
+</html>
