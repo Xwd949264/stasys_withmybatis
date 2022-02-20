@@ -14,6 +14,7 @@ public class Student {
     private String address;
     private String gender;
     private String title;
+    private String occupation;
     //setter
 
     //getter
