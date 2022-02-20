@@ -13,6 +13,7 @@ public class Student {
     private Integer age;
     private String address;
     private String gender;
+    private String occupation;
     //setter
 
     //getter
