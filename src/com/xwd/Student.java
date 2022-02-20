@@ -11,7 +11,7 @@ public class Student {
     //properties
     private String name;
     private Integer age;
-
+    private String address;
     //setter
 
     //getter
